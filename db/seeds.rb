@@ -5,3 +5,37 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 5 fake restaurants...'
+5.times do
+  restaurant = Restaurant.new(
+    name:    Faker::Company.name,
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    category: ["chinese", "italian", "japanese", "french", "belgian"].sample
+    )
+  restaurant.save!
+end
+
+puts 'Creating 5 fake reviews...'
+5.times do
+  review = Review.new(
+    restaurant_id: rand(1..6),
+    content: Faker::Lorem.words(5),
+    rating: rand(1..5)
+    )
+  review.save!
+end
+
+
+
+
+# puts 'Creating 5 fake reviews...'
+# 5.times do
+#   restaurant = Restaurant.new(
+#     name:    Faker::Company.name,
+#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+#     rating:  rand(0..5)
+#   restaurant.save!
+# end
+# # reviews: Faker::Lorem.words(4)
