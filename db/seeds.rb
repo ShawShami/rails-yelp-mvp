@@ -26,16 +26,3 @@ puts 'Creating 5 fake reviews...'
     )
   review.save!
 end
-
-
-
-
-# puts 'Creating 5 fake reviews...'
-# 5.times do
-#   restaurant = Restaurant.new(
-#     name:    Faker::Company.name,
-#     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
-#     rating:  rand(0..5)
-#   restaurant.save!
-# end
-# # reviews: Faker::Lorem.words(4)
